@@ -62,6 +62,12 @@ public class ConsultaDeProductos extends javax.swing.JInternalFrame {
 
         jLabel6.setText("Categoría:");
 
+        jtCodigo2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jtCodigo2ActionPerformed(evt);
+            }
+        });
+
         jtDescripcion2.setEditable(false);
 
         jtPrecio2.setEditable(false);
@@ -147,10 +153,24 @@ public class ConsultaDeProductos extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jbBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbBuscarActionPerformed
-         ArrayList<Producto> lista=Menu.getProductos();
-         lista.get(1);
-        
+    boolean exito=false;
+    for(Producto p : Menu.getProductos()){
+        if(p.getCodigo()== Integer.parseInt(jtCodigo2.getText())){
+            jtDescripcion2.setText(p.getDescripcion());
+            jtPrecio2.setText(p.getPrecio()+"");
+            jtStock2.setText(String.valueOf(p.getStock()));
+            jcbCategoria2.getModel().setSelectedItem(p.getCategoria());
+            exito=true;
+        }
+    }
+      if(!exito){
+          JOptionPane.showMessageDialog(this,"Producto Inexistente");
+      }  
     }//GEN-LAST:event_jbBuscarActionPerformed
+
+    private void jtCodigo2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtCodigo2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jtCodigo2ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

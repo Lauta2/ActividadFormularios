@@ -14,6 +14,7 @@ import jueves404.entidades.Producto;
  */
 public class Menu extends javax.swing.JFrame {
 private static ArrayList<Producto> productos=new ArrayList<>();
+ 
     /**
      * Creates new form Menu
      */

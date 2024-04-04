@@ -3,7 +3,7 @@ package jueves404.entidades;
 
 
 public class Producto {
-    private int codigo;
+    public int codigo;
     private String descripcion;
     private double precio;
     private int stock;
